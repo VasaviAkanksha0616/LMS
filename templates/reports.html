@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Reports</h2>
+<table class="table table-bordered">
+  <tr><th>ID</th><th>Book</th><th>Member</th><th>Issued</th><th>Returned</th><th>Fine</th></tr>
+  {% for t in transactions %}
+  <tr>
+    <td>{{t.id}}</td>
+    <td>{{t.book_id}}</td>
+    <td>{{t.member_id}}</td>
+    <td>{{t.issue_date}}</td>
+    <td>{{t.return_date}}</td>
+    <td>{{t.fine}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

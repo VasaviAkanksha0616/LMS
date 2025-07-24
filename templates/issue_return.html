@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Issue / Return</h2>
+<form method="post" class="mb-3">
+  <select name="book_id" class="form-select mb-2">
+    {% for b in books %}
+      <option value="{{b.id}}">{{b.title}} ({{b.status}})</option>
+    {% endfor %}
+  </select>
+  <select name="member_id" class="form-select mb-2">
+    {% for m in members %}
+      <option value="{{m.id}}">{{m.name}}</option>
+    {% endfor %}
+  </select>
+  <button name="action" value="issue" class="btn btn-primary">Issue</button>
+  <button name="action" value="return" class="btn btn-warning">Return</button>
+</form>
+{% endblock %}
