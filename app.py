@@ -5,6 +5,8 @@ from models.book_model import Book
 from models.member_model import Member
 from models.transaction_model import Transaction
 from datetime import datetime
+import os
+
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -79,4 +81,5 @@ def request_book():
     return render_template('request_book.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # 5000 for local fallback
+    app.run(host="0.0.0.0", port=port)
